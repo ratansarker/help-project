@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Try to make new
+    </title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    
+    
+    <Style>
+      .linm:hover{
+        background-color: blue;
+        
+      }
+      *{
+        box-sizing: border-box;
+      }
+      #hr-er{
+        border: 2px dotted red;
+        border-bottom: none;
+        width: 50%;
+        margin: auto;
+      }
+      .image-carocel{
+        width: 100px;
+        height: auto;
+        
+      }
+      .carousel-item{
+        padding: 10% 20%;
+      }
+      .image-tooltip{
+        width: 400px;
+        height: auto;
+      }
+    </Style>
+  </head>
+  
+  <body>
+    <div class="container">
+
+      <!-- header start hear -->
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top px-4">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img class="rounded-circle" src="data:image/jpeg;base64,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" alt="logo" style="width: 50px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- header end hear -->
+
+    
+      
+      <!-- service-section -->
+      <main>
+        <div class="service-section bg-light p-3">
+          <div class="tittle text-center mb-4">
+            <h3 class="fw-bolder">
+              Service
+            </h3>
+          </div>
+          <div class="row text-md-center">
+            <div class="col-lg-3 col-md-6">
+              <i class="bg-info mb-3 p-3 fa-3x text-white rounded-circle fa-solid fa-heart">
+              </i>
+              <h5 class="text-uppercase">
+                Web Development
+              </h5>
+              <p class="small text-muted">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae
+                similique veritatis facilis. Praesentium voluptatem ea, labore, laudantium
+                repellendus nam assumenda eaque dolorem consequatur ratione at eligendi!
+                Rerum, repellendus similique?
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <i class="bg-info mb-3 p-3 fa-3x text-white rounded-circle fa-solid fa-heart">
+              </i>
+              <h5 class="text-uppercase">
+                Web Development
+              </h5>
+              <p class="small text-muted">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae
+                similique veritatis facilis. Praesentium voluptatem ea, labore, laudantium
+                repellendus nam assumenda eaque dolorem consequatur ratione at eligendi!
+                Rerum, repellendus similique?
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <i class="bg-info mb-3 p-3 fa-3x text-white rounded-circle fa-solid fa-heart">
+              </i>
+              <h5 class="text-uppercase">
+                Web Development
+              </h5>
+              <p class="small text-muted">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae
+                similique veritatis facilis. Praesentium voluptatem ea, labore, laudantium
+                repellendus nam assumenda eaque dolorem consequatur ratione at eligendi!
+                Rerum, repellendus similique?
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <i class="bg-info mb-3 p-3 fa-3x text-white rounded-circle fa-solid fa-heart">
+              </i>
+              <h5 class="text-uppercase">
+                Web Development
+              </h5>
+              <p class="small text-muted">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae
+                similique veritatis facilis. Praesentium voluptatem ea, labore, laudantium
+                repellendus nam assumenda eaque dolorem consequatur ratione at eligendi!
+                Rerum, repellendus similique?
+              </p>
+            </div>
+          </div>
+          <!-- alert-warning -->
+          <div class=" alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>
+              Holy guacamole!
+            </strong>
+            You should check in on some of those fields below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+          </div>
+          <!-- About-me-section -->
+          <div class=" bg-light ">
+            <div class="tittle">
+              <h4 class="text-center fw-bolder py-4 bg-info">
+                About Me
+              </h4>
+              <div class="row ">
+                <div class="col-lg-4">
+                  <img class="img-fluid col-md-4 col-sm-12  rounded-circle mt-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0oSh22a-nevLmcRfhmhbVlYjY5eF68Vp_rnOVUzqj71phFjbTgRNqP80SVw&s"
+                alt="sfdfsdf">
+                </div>
+                <div class="col-lg-8">
+                  <p class="col-lg-8 m-auto">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  </p>
+                  <a href="#dame" data-bs-toggle="collapse" class="d-block text-decoration-none btn bg-info">Learn More</a>
+                  <div id="dame" class="collapse">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, officiis, expedita unde quis sit perspiciatis, veritatis totam exercitationem minus quae ullam molestias quod suscipit ratione libero similique nihil id molestiae!
+                    </p>
+                  </div>
+                  <div class="btn-group">
+                    <button id="damon" class="btn m-auto btn-outline-primary my-3 btn-block ">
+                      See More
+                    </button>
+                    <button class="btn m-auto btn-outline-primary my-3 btn-block ">
+                      See More
+                    </button>
+
+                  </div>
+                  <!-- ankor tag button -->
+                  <a href="#" class="btn btn-outline-primary">
+                    See and See
+                  </a>
+                  <div class="">
+                    <div class="col-lg-8 text-end d-block m-auto my-3 alert alert-info alert-dismissible fade show"
+                    role="alert">
+                      <strong>
+                        Holy guacamole!
+                      </strong>
+                      You should check in on some of those fields below.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                      </button>
+                </div>
+
+                
+                <!-- progressbar  -->
+
+                <div class="container">
+                  <div class="title bg-info text-center py-3">
+                    <h4 class="fw-bolder">ProgressBar</h4>
+                  </div>
+                  <div class="my-3">
+                    <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated  " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">HTML</div>
+                    </div>
+                  
+                  </div>
+                  <div class="my-3">
+                    
+                    <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated  " role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">CSS</div>
+                    </div>
+                    
+                  </div>
+                  <div class="my-3">
+                    
+                    <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated  " role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">JS</div>
+                    </div>
+                    
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- About me ends here  -->
+
+          <!-- media object start in here  -->
+
+  <!-- Title  -->
+          <div class="media-section box-sizing">
+            <div class="title bg-info py-4 text-center">
+              <h4 class="fw-bolder">My Blogs</h4>
+            </div>
+            <!-- Media object -->
+            <div class="row py-3">
+              <div class="col-lg-3 border">
+                <div class="d-flex product-box my-4">
+                  <!-- Image -->
+                  <img
+                    src="https://images.pexels.com/photos/36029/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="John Doe"
+                    class="me-3 rounded-circle"
+                    style="width: 60px; height: 60px;"
+                  />
+                  <!-- Body -->
+                  <div>
+                    <h5 class="fw-bold">
+                      John Doe
+                      <small class="text-muted">Posted on February 19, 2020</small>
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Second Blogs -->
+              <div class="col-lg-3 border">
+                <div class="d-flex product-box my-4">
+                  <!-- Image -->
+                  <img
+                    src="https://images.pexels.com/photos/36029/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="John Doe"
+                    class="me-3 rounded-circle"
+                    style="width: 60px; height: 60px;"
+                  />
+                  <!-- Body -->
+                  <div>
+                    <h5 class="fw-bold">
+                      John Doe
+                      <small class="text-muted">Posted on February 19, 2020</small>
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- blogs three  -->
+              <div class="col-lg-3 border">
+                <div class="d-flex product-box my-4">
+                  <!-- Image -->
+                  <img
+                    src="https://images.pexels.com/photos/36029/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="John Doe"
+                    class="me-3 rounded-circle"
+                    style="width: 60px; height: 60px;"
+                  />
+                  <!-- Body -->
+                  <div>
+                    <h5 class="fw-bold">
+                      John Doe
+                      <small class="text-muted">Posted on February 19, 2020</small>
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Blog four  -->
+              <div class="col-lg-3 border">
+                <div class="d-flex product-box my-4">
+                  <!-- Image -->
+                  <img
+                    src="https://images.pexels.com/photos/36029/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="John Doe"
+                    class="me-3 rounded-circle"
+                    style="width: 60px; height: 60px;"
+                  />
+                  <!-- Body -->
+                  <div>
+                    <h5 class="fw-bold">
+                      John Doe
+                      <small class="text-muted">Posted on February 19, 2020</small>
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- Media object -->
+          </div>
+
+          <!-- media object ends in here  -->
+
+          <!-- Post card start here  -->
+          <div class="card-section mb-0 text-center py-4">
+            <div class="title bg-info">
+              <h4 class="fw-bolder py-4">
+                Card Section
+              </h4>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="card">
+                  <img class="card-img-top" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Book">
+                  <div class="card-body">
+                    <h4 class="card-title">Faridly Book</h4>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam incidunt rem provident. Explicabo cum nisi nulla optio? Perspiciatis, omnis architecto?</p>
+                    <a class="card-link stretched-link text-decoration-none" target="_blank" href="https://ratansarker.com">Read More</a>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card">
+                  <img class="card-img-top" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Book">
+                  <div class="card-body">
+                    <h4 class="card-title">Faridly Book</h4>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam incidunt rem provident. Explicabo cum nisi nulla optio? Perspiciatis, omnis architecto?</p>
+                    <a class="card-link stretched-link text-decoration-none" target="_blank" href="https://ratansarker.com">Read More</a>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card">
+                  <img class="card-img-top" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Book">
+                  <div class="card-body">
+                    <h4 class="card-title">Faridly Book</h4>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam incidunt rem provident. Explicabo cum nisi nulla optio? Perspiciatis, omnis architecto?</p>
+                    <a class="card-link stretched-link text-decoration-none" target="_blank" href="https://ratansarker.com">Read More</a>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card">
+                  <img class="card-img-top" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Book">
+                  <div class="card-body">
+                    <h4 class="card-title">Faridly Book</h4>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam incidunt rem provident. Explicabo cum nisi nulla optio? Perspiciatis, omnis architecto?</p>
+                    <a class="card-link stretched-link text-decoration-none" target="_blank" href="https://ratansarker.com">Read More</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  Post card ends here   -->
+
+
+
+
+
+
+          <!-- Table section start here  -->
+
+          <div class="table-section">
+            <!-- table name  -->
+            <div class="title bg-info p-3 text-center">
+              <h4 class="fw-bolder">
+                Student Passing Detils
+              </h4>
+            </div>
+
+            <!-- Table from  -->
+            <table class="table table-bordered table-hover table-info">
+              <thead>
+                <tr class="table-primary">
+                  <th scope="col">Student Name</th>
+                  <th scope="col">Bord</th>
+                  <th scope="col">Passing Year</th>
+                  <th scope="col">GPA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Ratan</th>
+                  <td>Barisal</td>
+                  <td>2015</td>
+                  <td>3.83</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sumon</th>
+                  <td>Barisal</td>
+                  <td>2015</td>
+                  <td>3.76</td>
+                </tr>
+                <tr>
+                  <th scope="row">Kamal</th>
+                  <td>Barisal</td>
+                  <td>2015</td>
+                  <td>3.54</td>
+                </tr>
+                <tr>
+                  <th scope="row">Kamal</th>
+                  <td>Barisal</td>
+                  <td>2015</td>
+                  <td>3.54</td>
+                </tr>
+              </tbody>
+
+
+
+            </table>
+
+
+
+
+
+
+
+          </div>
+
+
+          <!-- Table section ends here  -->
+
+          <!-- Customr review seciton -->
+          <div class="customer-review text-center bg-light">
+            <div class="tittle bg-info py-3">
+              <h1 class="fw-bolder">
+                What Client Sayes
+              </h1>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <i class="fa-3x my-3 fa-solid fa-user">
+                </i>
+                <blockquote class="blockquote">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias
+                    minus distinctio sed in odit veniam ipsam doloremque, temporibus quidem
+                    autem maxime laudantium quis, recusandae deleniti eligendi? Cumque,
+                    <abbr title="What is name">
+                      dolores porro
+                    </abbr>
+                    .
+                  </p>
+                  <footer class="blockquote-footer mt-2">
+                    Ratan Sarker in
+                    <cite>
+                      Pinterest
+                    </cite>
+                  </footer>
+                </blockquote>
+              </div>
+              <div class="col-lg-4">
+                <i class="fa-3x my-3 fa-solid fa-user">
+                </i>
+                <blockquote class="blockquote">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias
+                    minus distinctio sed in odit veniam ipsam doloremque, temporibus quidem
+                    autem maxime laudantium quis, recusandae deleniti eligendi? Cumque,
+                    <abbr title="What is name">
+                      dolores porro
+                    </abbr>
+                    .
+                  </p>
+                  <footer class="blockquote-footer mt-2">
+                    Ratan Sarker in
+                    <cite>
+                      Pinterest
+                    </cite>
+                  </footer>
+                </blockquote>
+              </div>
+              <div class="col-lg-4">
+                <i class="fa-3x my-3 fa-solid fa-user">
+                </i>
+                <blockquote class="blockquote">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias
+                    minus distinctio sed in odit veniam ipsam doloremque, temporibus quidem
+                    autem maxime laudantium quis, recusandae deleniti eligendi? Cumque,
+                    <abbr title="What is name">
+                      dolores porro
+                    </abbr>
+                    .
+                  </p>
+                  <footer class="blockquote-footer mt-2">
+                    Ratan Sarker in
+                    <cite>
+                      Pinterest
+                    </cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+
+            <!-- Daynamic tab in start here -->
+            <div class="container">
+              <div class="tittle bg-primary text-center text-white text-uppercase m-4">
+                <h3>
+                  Tabs
+                </h3>
+              </div>
+            </div>
+              <div class="others-section my-4">
+                <ul class="nav nav-tabs justify-content-center">
+                  <li class="nav-item "><a data-bs-toggle="tab" class="nav-link " href="#Rohim">Rohim 1</a></li>
+                  <li class="nav-item "><a data-bs-toggle="tab" class="nav-link" href="#Koim">Koim 2</a></li>
+                  <li class="nav-item "><a data-bs-toggle="tab" class="nav-link" href="#Sumon">Sumon 3</a></li>
+                  <li class="nav-item "><a data-bs-toggle="tab" class="nav-link" href="#Bipul">Bipul 4</a></li>
+                  <li class="nav-item "><a data-bs-toggle="tab" class="nav-link" href="#Saji">Sajib 5</a></li>
+                </ul>
+                <div class="tab-content text-white  text-center">
+                  <div id="Rohim" class="tab-pane p-3 bg-primary active"><p>1 ipsum dolor sit amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                <div id="Koim" class="tab-pane p-3 bg-info fade"><p>2 dolor sit amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                <div id="Sumon" class="tab-pane p-3 bg-success fade"><p>3 sit amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                <div id="Bipul" class="tab-pane p-3 bg-danger fade"><p>4 amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                <div id="Saji" class="tab-pane p-3 bg-info fade"><p>5 consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                </div>
+              </div>
+
+            <!-- Daynamic tab in end here -->
+
+                        <!-- Daynamic pills in start here -->
+                        <div class="container">
+                          
+                        
+                          <div class="others-section my-4 bg-dark">
+                            <ul class="nav nav-pills justify-content-center">
+                              <li class="nav-item "><a data-bs-toggle="pill" class="nav-link " href="#Rohim">Rohim 1</a></li>
+                              <li class="nav-item "><a data-bs-toggle="pill" class="nav-link" href="#Koim">Koim 2</a></li>
+                              <li class="nav-item "><a data-bs-toggle="pill" class="nav-link" href="#Sumon">Sumon 3</a></li>
+                              <li class="nav-item "><a data-bs-toggle="pill" class="nav-link" href="#Bipul">Bipul 4</a></li>
+                              <li class="nav-item "><a data-bs-toggle="pill" class="nav-link" href="#Saji">Sajib 5</a></li>
+                            </ul>
+                            <div class="tab-content text-white  text-center">
+                              <div id="Rohim" class="tab-pane "><p>1 ipsum dolor sit amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                            <div id="Koim" class="tab-pane "><p>2 dolor sit amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                            <div id="Sumon" class="tab-pane "><p>3 sit amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                            <div id="Bipul" class="tab-pane p-3 bg-danger fade"><p>4 amet consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                            <div id="Saji" class="tab-pane p-3 bg-info fade"><p>5 consectetur adipisicing elit. Nemo minima officiis numquam omnis praesentium totam quae? Rerum unde labore soluta atque minus assumenda, consequatur laboriosam animi repellat sunt exercitationem nam!</p></div>
+                            </div>
+                          </div>
+            
+                        <!-- Daynamic pills in end here -->
+
+          <!-- Student group list -->
+          <div class="student-list">
+            <div class="group-list">
+              <ul class="list-group">
+                <li class="list-group-item bg-primary text-center text-white ">
+                  Korim
+                </li>
+                <li class="list-group-item bg-primary text-center text-white ">
+                  Korim
+                </li>
+                <li class="list-group-item bg-primary text-center text-white ">
+                  Korim
+                </li>
+                <li class="list-group-item bg-primary text-center text-white ">
+                  Korim
+                </li>
+                <a href="#" class="list-group-item list-group-item-action bg-primary text-center text-white mb-3 p-2">
+                  Rohin see more
+                </a>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Img carocel start here  -->
+              <!-- title  -->
+          <div class="container bg-primary text-center text-white">
+            <section id="feedback">
+              <div class="titel p-4">
+                <h4 class="fw-bolder">Feedback</h4>
+                <hr class="hr-style" id="hr-er">
+              </div>
+              
+              <!-- image carocel  -->
+<div class="carocel">
+  <div class="row">
+    <div class="col-lg-12">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-pause="hover">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <p>1.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, ex! Ut quia ad expedita laudantium!</p>
+          <img class="image-carocel rounded-circle" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Img">
+          <h4 class="my-2">Ratan Sarker</h4>
+        </div>
+        <div class="carousel-item">
+          <p>1.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, ex! Ut quia ad expedita laudantium!</p>
+          <img class="image-carocel rounded-circle" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Img">
+          <h4 class="my-2">Ratan Sarker</h4>
+        </div>
+        <div class="carousel-item">
+          <p>1.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, ex! Ut quia ad expedita laudantium!</p>
+          <img class="image-carocel rounded-circle" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Img">
+          <h4 class="my-2">Ratan Sarker</h4>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+   </div>
+  </div>
+</div>
+            </section>
+          </div>
+          <!-- Img carocel ends here  -->
+
+          <!-- badge tooltip start here -->
+          <div class="container-tooltip">
+            <div class="title bg-info p-4 my-4 rounded text-center">
+              <h5 class="fw-bolder">My CV</h5>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 d-flex align-items-center ">
+                <div>
+                  <h3>Downdola My CV <span class="badge bg-info W-100">Multipale</span></h3>
+                </div>
+                <div>
+                  <!-- botton  -->
+                <button class="btn m-auto clearfix w-100 btn-primary">
+                  Download 
+                  <span class="badge bg-info rounded-pill">80</span>
+                </button>
+                </div>
+                <button class="btn btn-primary d-flex w-100" data-bs-toggle="tooltip" data-bs-placement="right" title="Submit your document">
+                  Submit
+                </button>
+              </div>
+              <div class="col-lg-6">
+                <img class="image-tooltip" src="https://cdn-ladcn.nitrocdn.com/UYdUFVLhsCouIZOVbTDxgjkYwsHLAwLN/assets/images/optimized/rev-85916f6/ratansarker.com/wp-content/uploads/2023/08/Untitled-design-2-1-1536x1536.png" alt="Picture">
+              </div>
+            </div>
+              
+          </div>
+
+          <!-- badge tooltip ends here -->
+
+          <!-- float, clearfix and SVG icons start here  -->
+
+            <div class="float-container">
+              <div class="title bg-info py-3 text-center my-2">
+                <h4 class="fw-bolder">Float</h4>
+              </div>
+              <div class="row">
+                <div class="right-div bg-info p-4 float-start w-50 text-center">
+                  <h5>Right Div</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+                </div>
+                <div class="right-div bg-primary p-4 float-end w-50 text-center">
+                  <h5>Left Div</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+                <!-- button  -->
+                <button class="btn btn-info">
+                  Learn more
+                </button>
+              </div>
+              <div class="right-div bg-primary p-4 float-end w-50 text-center">
+                <h5>Left Div</h5>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+              <!-- button  -->
+              <button class="btn btn-info">
+                Learn more
+              </button>
+            </div>
+            <div class="right-div bg-info p-4 float-end w-50 text-center">
+              <h5>Left Div</h5>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis distinctio voluptas provident corrupti, eius minima eum aperiam? Molestiae, possimus doloribus!</p>
+            <!-- button  -->
+            <button class="btn btn-primary">
+              Learn more
+            </button>
+          </div>
+              </div>
+              
+                
+              </div>
+          <!-- float, clearfix and SVG icons ends here  -->
+
+            <!-- Display  position start here -->
+
+              <div class="bg-info position-relative my-3" style="height: 200px;">
+                
+                <button class="position-absolute start-50 top-50 translate-middle btn btn-primary">
+                  
+                  <!-- svg icon  -->
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-engines" viewBox="0 0 16 16">
+                    <path d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0M7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1c.213 0 .458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7z"/>
+                  </svg>
+
+                  click me
+                </button>
+              </div>
+
+            <!-- Display  position ends here -->
+
+              <!-- model start in here  -->
+              <!-- Button trigger modal -->
+<div class="model-box text-center bg-info py-4">
+  <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+    click and show popup
+  </button>
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">This is Ratan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, placeat.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+              <!-- model ends in here  -->
+
+
+          <!-- Clopesable item start-->
+
+      </main>
+      <footer class="bg-dark">
+          <ul class="pagination py-3 justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+      </footer>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous">
+      </script>
+  </body>
+
+</html>
